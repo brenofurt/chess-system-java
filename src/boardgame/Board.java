@@ -35,5 +35,10 @@ public class Board {
 	public Piece piece(Position position) {
 		return pieces[position.getRow()][position.getColumn()];
 	}
+							//esse piece só pode estar vindo do método
+	public void placePiece(Piece piece, Position position) { //por argumento esta vindo uma matriz
+		pieces[position.getRow()][position.getColumn()] = piece; // essa matriz é a matriz do meu tabuleiro
+		piece.position = position;  // o método piece esta acessando o atributo position que é protected da classe Piece e passando a ele uma nova posição
+	}
 	
 }
