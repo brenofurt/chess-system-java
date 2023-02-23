@@ -1,6 +1,8 @@
 package boardgame;
 
-public class Board {
+public class Board {  
+	
+	//verificado
 
 	private int rows;
 	private int columns;
@@ -46,6 +48,19 @@ public class Board {
 		pieces[position.getRow()][position.getColumn()] = piece; // essa matriz é a matriz do meu tabuleiro
 		piece.position = position;  // o método piece esta acessando o atributo position que é protected da classe Piece e passando a ele uma nova posição
 	}  // Atualiza a posição da peça Piece position
+	
+	public Piece removePiece(Position position) {
+		if(!positionExists(position)) {
+			throw new BoardException("Position not on the board");
+		}
+		if (piece(position) == null) {
+			return null; 
+		}
+		Piece aux = piece(position);
+		aux.position = null;
+		pieces[position.getRow()][position.getColumn()] = null;
+		return aux;
+	}
 	
 	private boolean positionExists(int row, int column) {
 		return row >= 0 && row < rows && column >= 0 && column < columns;
