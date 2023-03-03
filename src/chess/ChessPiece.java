@@ -16,6 +16,12 @@ public class ChessPiece extends Piece {
 		return color;
 	}
 
+	@Override
+	public boolean[][] possibleMoves() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 }
